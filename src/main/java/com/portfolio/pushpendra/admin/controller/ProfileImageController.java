@@ -67,5 +67,109 @@ public class ProfileImageController {
             return "redirect:/admin/dashboard";
         }
     }
+    @PostMapping("/removeProfileImage")
+    public String removeProfileImage(RedirectAttributes ra) {
+        ProfileImageModel latest = profileImageService.getLatestProfileImageEntity();
+        if (latest != null) {
+            latest.setProfileImage(null);
+            profileImageService.save(latest);
+        }
+        // optional: let the view know immediately
+        ra.addFlashAttribute("profileImagePath", null);
+        ra.addFlashAttribute("cacheBuster", System.currentTimeMillis());
+        return "redirect:/admin/dashboard";
+    }
+
+    @PostMapping("/updateAboutImage")
+    public String updateAboutImage(@RequestParam("aboutImage") MultipartFile image,
+                                   RedirectAttributes redirectAttributes) {
+        try {
+            if (image != null && !image.isEmpty()) {
+
+                Path dirPath = Paths.get(uploadDir);
+                Files.createDirectories(dirPath);
+
+                String fileName = "aboutImage.jpg";
+                Path filePath = dirPath.resolve(fileName);
+
+                Files.deleteIfExists(filePath);
+                image.transferTo(filePath.toFile());
+
+                String imageUrl = "/assets/img/profile/" + fileName;
+
+                // Fetch latest DB record
+                ProfileImageModel latest = profileImageService.getLatestProfileImageEntity();
+                if (latest == null) latest = new ProfileImageModel();
+
+                // Update aboutImage field
+                latest.setAboutImage(imageUrl);
+                profileImageService.save(latest);
+
+                redirectAttributes.addFlashAttribute("aboutImagePath", imageUrl);
+                redirectAttributes.addFlashAttribute("cacheBuster", System.currentTimeMillis());
+            }
+
+            return "redirect:/admin/dashboard";
+        } catch (IOException e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("error", "Failed to upload about image: " + e.getMessage());
+            return "redirect:/admin/dashboard";
+        }
+    }
+    @PostMapping("/removeAboutImage")
+    public String removeAboutImage() {
+        ProfileImageModel profile = profileImageService.getLatestProfileImageEntity();
+        if (profile != null) {
+            profile.setAboutImage(null);
+            profileImageService.save(profile);
+        }
+        return "redirect:/admin/dashboard";
+    }
+
+    @PostMapping("/updateResumeImage")
+    public String updateResumeImage(@RequestParam("resumeImage") MultipartFile image,
+                                   RedirectAttributes redirectAttributes) {
+        try {
+            if (image != null && !image.isEmpty()) {
+
+                Path dirPath = Paths.get(uploadDir);
+                Files.createDirectories(dirPath);
+
+                String fileName = "resumeImage.jpg";
+                Path filePath = dirPath.resolve(fileName);
+
+                Files.deleteIfExists(filePath);
+                image.transferTo(filePath.toFile());
+
+                String imageUrl = "/assets/img/profile/" + fileName;
+
+                // Fetch latest DB record
+                ProfileImageModel latest = profileImageService.getLatestProfileImageEntity();
+                if (latest == null) latest = new ProfileImageModel();
+
+                // Update aboutImage field
+                latest.setResumeImage(imageUrl);
+                profileImageService.save(latest);
+
+                redirectAttributes.addFlashAttribute("resumeImagePath", imageUrl);
+                redirectAttributes.addFlashAttribute("cacheBuster", System.currentTimeMillis());
+            }
+
+            return "redirect:/admin/dashboard";
+        } catch (IOException e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("error", "Failed to upload about image: " + e.getMessage());
+            return "redirect:/admin/dashboard";
+        }
+    }
+    @PostMapping("/removeResumeImage")
+    public String removeResumeImage() {
+        ProfileImageModel profile = profileImageService.getLatestProfileImageEntity();
+        if (profile != null) {
+            profile.setResumeImage(null);
+            profileImageService.save(profile);
+        }
+        return "redirect:/admin/dashboard";
+    }
 
 }

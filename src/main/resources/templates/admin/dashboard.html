@@ -179,26 +179,33 @@
                         </div>
                     </div>
                     <!-- End Chatbot -->
-
-                    <!-- Image Profile section -->
+                    <!-- Image Profile Section -->
                     <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                         <div class="hero-visual">
                             <div class="profile-container">
                                 <div class="profile-background"></div>
 
+                                <!-- Profile Image -->
+<!--                                <img class="profile-image"-->
+<!--                                     th:src="${profileImagePath != null ? baseUrl + profileImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"-->
+<!--                                     alt="Profile Image">-->
                                 <img class="profile-image"
-                                     th:src="${profileImagePath != null ? baseUrl + profileImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
-                                     alt="Hero Image">
+                                     th:src="${#strings.isEmpty(profileImagePath) ? baseUrl + '/assets/img/profile/default-hero.png' : baseUrl + profileImagePath}"
+                                     alt="Profile Image">
 
+                                <!-- Buttons Below Image -->
+                                <div class="profile-buttons">
+                                    <!-- Update Button -->
+                                    <form th:action="@{/updateProfileImage}" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="profileImage" id="profileImage" class="d-none" onchange="this.form.submit()">
+                                        <label for="profileImage" class="btn update-btn">Update Photo</label>
+                                    </form>
 
-                                <form th:action="@{/updateProfileImage}"
-                                      method="post"
-                                      enctype="multipart/form-data"
-                                      class="upload-form">
-                                    <input type="file" name="profileImage" id="profileImage"
-                                           class="d-none" onchange="this.form.submit()">
-                                    <label for="profileImage" class="upload-btn">Change</label>
-                                </form>
+                                    <!-- Remove Button -->
+                                    <form th:action="@{/removeProfileImage}" method="post">
+                                        <button type="submit" class="btn remove-btn">Remove Photo</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -358,15 +365,36 @@
             <div class="row">
                 <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
                     <div class="profile-card">
+                        <!-- About Image Section -->
                         <div class="profile-header">
                             <div class="profile-image">
-                                <img src="/assets/img/profile/my_close_pic.jpg" alt="Profile Image" class="img-fluid">
+                                <!-- About Image -->
+                                <img th:src="${aboutImagePath != null ? baseUrl + aboutImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                                     alt="About Image"
+                                     class="img-fluid profile-image">
                             </div>
+
+                            <!-- Badge stays same -->
                             <div class="profile-badge">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
                         </div>
 
+                        <!-- Buttons below image -->
+                        <div class="profile-buttons">
+                            <!-- Update Button -->
+                            <form th:action="@{/updateAboutImage}" method="post" enctype="multipart/form-data">
+                                <input type="file" name="aboutImage" id="aboutImage" class="d-none" onchange="this.form.submit()">
+                                <label for="aboutImage" class="btn update-btn">Update Photo</label>
+                            </form>
+
+                            <!-- Remove Button -->
+                            <form th:action="@{/removeAboutImage}" method="post">
+                                <button type="submit" class="btn remove-btn">Remove Photo</button>
+                            </form>
+                        </div>
+
+                        <!-- End About Image Section -->
                         <div class="profile-content">
                             <h3>Pushpendra Singh</h3>
                             <p class="profession">Java Full Stack Developer</p>
@@ -636,9 +664,28 @@
                 <!-- Left column with summary and contact -->
                 <div class="col-lg-4">
                     <div class="resume-side" data-aos="fade-right" data-aos-delay="100">
+                        <!-- Resume Image Section -->
                         <div class="profile-img mb-4">
-                            <img src="/assets/img/profile/my_close_pic.jpg" alt="Pushpendra Singh" class="img-fluid rounded">
+                            <!-- Resume Image -->
+                            <img class="img-fluid rounded"
+                                 th:src="${resumeImagePath != null ? baseUrl + resumeImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                                 alt="Pushpendra Singh">
+
+                            <!-- Buttons Below Image -->
+                            <div class="profile-buttons mt-3">
+                                <!-- Update Button -->
+                                <form th:action="@{/updateResumeImage}" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="resumeImage" id="resumeImage" class="d-none" onchange="this.form.submit()">
+                                    <label for="resumeImage" class="btn update-btn">Update Photo</label>
+                                </form>
+
+                                <!-- Remove Button -->
+                                <form th:action="@{/removeResumeImage}" method="post">
+                                    <button type="submit" class="btn remove-btn">Remove Photo</button>
+                                </form>
+                            </div>
                         </div>
+
 
                         <h3>Professional Summary</h3>
                         <p>Motivated Java Developer with expertise in Spring Boot, REST APIs, and backend systems. Strong understanding of web technologies with a focus on delivering quality, maintainable solutions.</p>

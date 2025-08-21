@@ -3040,42 +3040,58 @@ Interview booking slot
     color: #000 !important;
 }
 
-/* Upload button styling */
-/*!* profile image section css *!*/
-/*.upload-btn {*/
-/*    display: inline-block;*/
-/*    padding: 8px 16px;*/
-/*    background: #007bff;*/
-/*    color: white;*/
-/*    font-size: 14px;*/
-/*    font-weight: 500;*/
-/*    border-radius: 6px;*/
-/*    cursor: pointer;*/
-/*    transition: background 0.3s ease;*/
-/*    margin-top: 10px;*/
-/*}*/
+/* Profile Image Container */
+.image-container, .profile-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
 
-/*.upload-btn:hover {*/
-/*    background: #0056b3;*/
-/*}*/
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Removed border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-/*.image-container {*/
-/*    position: relative;*/
-/*    width: 250px;*/
-/*    height: 250px;*/
-/*    overflow: hidden;*/
-/*}*/
+/* Buttons below image */
+.profile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
 
-/*.image-container img {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    border-radius: 50%;*/
-/*    object-fit: cover;*/
-/*}*/
+/* Common button styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.5); /* subtle border for transparency */
+    background: transparent;
+    color: inherit; /* adapts to dark/light text */
+}
 
-/*.change-btn {*/
-/*    position: absolute;*/
-/*    top: 10px;*/
-/*    right: 10px;*/
-/*}*/
-/* Profile Image Layout */
+/* Update button */
+.update-btn {
+    border-color: #007bff; /* subtle color border */
+}
+
+.update-btn:hover {
+    background: rgba(0, 123, 255, 0.1); /* light hover effect */
+}
+
+/* Remove button */
+.remove-btn {
+    border-color: #dc3545;
+}
+
+.remove-btn:hover {
+    background: rgba(220, 53, 69, 0.1);
+}

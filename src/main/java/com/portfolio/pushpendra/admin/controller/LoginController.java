@@ -71,6 +71,17 @@ public class LoginController {
             model.addAttribute("profileImagePath", latest.getProfileImage());
         }
 
+        ProfileImageModel about = profileImageService.getLatestProfileImageEntity();
+
+        if (about != null) {
+            model.addAttribute("aboutImagePath", about.getAboutImage());
+        }
+        ProfileImageModel resume = profileImageService.getLatestProfileImageEntity();
+
+        if (resume != null) {
+            model.addAttribute("resumeImagePath", resume.getResumeImage());
+        }
+
         // ✅ Pass baseUrl and cacheBuster to Thymeleaf
         model.addAttribute("baseUrl", baseUrl);
         model.addAttribute("cacheBuster", System.currentTimeMillis());

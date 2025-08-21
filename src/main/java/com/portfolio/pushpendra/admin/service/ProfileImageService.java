@@ -23,8 +23,15 @@ public class ProfileImageService {
                 ? latest.getProfileImage()
                 : "/assets/img/profile/default-hero.jpg"; // leading slash ✔
     }
+    public String getLatestAboutImagePath() {
+        ProfileImageModel latest = profileImageRepo.findTopByOrderByIdDesc();
+        return (latest != null && latest.getAboutImage() != null && !latest.getAboutImage().isBlank())
+                ? latest.getAboutImage()
+                : "/assets/img/profile/default-hero.jpg"; // leading slash ✔
+    }
 
     public ProfileImageModel save(ProfileImageModel profile) {
         return profileImageRepo.save(profile);
     }
+
 }
