@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Professional Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- If you use Bootstrap in your project, uncomment below -->
+    <!-- <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"> -->
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 72px;
+            margin: 0;
+            color: #dc3545;
+        }
+        h2 {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        p {
+            color: #555;
+            margin: 20px 0;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .icon {
+            font-size: 50px;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="icon">🚫</div>
+    <h1>403</h1>
+    <h2>Access Denied</h2>
+    <p>You do not have permission to view this page.</p>
+    <a th:href="@{/}">Return Home</a>
+</div>
+</body>
+</html>
