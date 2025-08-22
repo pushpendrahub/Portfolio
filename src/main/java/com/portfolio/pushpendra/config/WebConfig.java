@@ -33,5 +33,12 @@ public class WebConfig implements WebMvcConfigurer {
                         "classpath:/static/assets/img/certificates/", // default certificates
                         "file:D:/uploads/certificates/"               // uploaded certificates
                 );
+
+        // Project images
+        registry.addResourceHandler("/assets/img/project/**")
+                .addResourceLocations(
+                        "classpath:/static/assets/img/project/", // default certificates
+                        "file:D:/uploads/project/"               // uploaded certificates
+                );
     }
 }

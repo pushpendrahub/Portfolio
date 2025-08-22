@@ -1,11 +1,8 @@
 package com.portfolio.pushpendra.admin.controller;
 
-import com.portfolio.pushpendra.admin.service.CertificationService;
+import com.portfolio.pushpendra.admin.service.*;
 import org.springframework.beans.factory.annotation.Value;
 import com.portfolio.pushpendra.admin.model.ProfileImageModel;
-import com.portfolio.pushpendra.admin.service.AuthenticationService;
-import com.portfolio.pushpendra.admin.service.ProfileImageService;
-import com.portfolio.pushpendra.admin.service.VisitorLogService;
 import com.portfolio.pushpendra.model.InterviewBookingModel;
 import com.portfolio.pushpendra.service.InterviewBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Controller
@@ -31,14 +29,16 @@ public class LoginController {
     private final InterviewBookingService interviewBookingService;
     private final ProfileImageService profileImageService;
     private final CertificationService certificationService;
+    private final ProjectService projectService;
 
     public LoginController(VisitorLogService visitorLogService,
                            InterviewBookingService interviewBookingService,
-                           ProfileImageService profileImageService, CertificationService certificationService) {
+                           ProfileImageService profileImageService, CertificationService certificationService, ProjectService projectService) {
         this.visitorLogService = visitorLogService;
         this.interviewBookingService = interviewBookingService;
         this.profileImageService = profileImageService;
         this.certificationService = certificationService;
+        this.projectService = projectService;
     }
 
     @GetMapping("/admin/login")
@@ -99,6 +99,29 @@ public class LoginController {
 
         //get all certificates
         model.addAttribute("certifications", certificationService.getAllCertifications());
+
+        //get all projects
+        model.addAttribute("projects", projectService.getAllProjects());
+
+        // Tool to icon mapping
+        Map<String, String> toolIconMap = new HashMap<>();
+        toolIconMap.put("Java", "bi bi-cup-hot-fill text-primary");
+        toolIconMap.put("Spring Boot", "bi bi-box-seam text-success");
+        toolIconMap.put("Thymeleaf", "bi bi-file-earmark-code text-warning");
+        toolIconMap.put("MySQL", "bi bi-database-fill text-info");
+        toolIconMap.put("Spring Security", "bi bi-shield-lock-fill text-danger");
+
+        toolIconMap.put("Python", "bi bi-terminal-fill text-primary");
+        toolIconMap.put("OpenCV", "bi bi-camera-video-fill text-success");
+        toolIconMap.put("HTML", "bi bi-filetype-html text-warning");
+        toolIconMap.put("CSS", "bi bi-filetype-css text-info");
+        toolIconMap.put("Firebase", "bi bi-cloud-fill text-danger");
+
+        toolIconMap.put("PHP", "bi bi-filetype-php text-primary");
+        toolIconMap.put("CodeIgniter", "bi bi-diagram-3-fill text-success");
+
+        model.addAttribute("toolIconMap", toolIconMap);
+
         return "admin/dashboard";
     }
 }
