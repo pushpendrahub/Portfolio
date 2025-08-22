@@ -1,5 +1,6 @@
 package com.portfolio.pushpendra.admin.controller;
 
+import com.portfolio.pushpendra.admin.service.CertificationService;
 import org.springframework.beans.factory.annotation.Value;
 import com.portfolio.pushpendra.admin.model.ProfileImageModel;
 import com.portfolio.pushpendra.admin.service.AuthenticationService;
@@ -29,13 +30,15 @@ public class LoginController {
     private final VisitorLogService visitorLogService;
     private final InterviewBookingService interviewBookingService;
     private final ProfileImageService profileImageService;
+    private final CertificationService certificationService;
 
     public LoginController(VisitorLogService visitorLogService,
                            InterviewBookingService interviewBookingService,
-                           ProfileImageService profileImageService) {
+                           ProfileImageService profileImageService, CertificationService certificationService) {
         this.visitorLogService = visitorLogService;
         this.interviewBookingService = interviewBookingService;
         this.profileImageService = profileImageService;
+        this.certificationService = certificationService;
     }
 
     @GetMapping("/admin/login")
@@ -94,6 +97,8 @@ public class LoginController {
         List<InterviewBookingModel> interviewBooking = interviewBookingService.getAllBookingSlots();
         model.addAttribute("interviewBookings", interviewBooking);
 
+        //get all certificates
+        model.addAttribute("certifications", certificationService.getAllCertifications());
         return "admin/dashboard";
     }
 }

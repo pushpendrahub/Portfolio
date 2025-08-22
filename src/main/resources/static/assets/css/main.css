@@ -3095,3 +3095,60 @@ Interview booking slot
 .remove-btn:hover {
     background: rgba(220, 53, 69, 0.1);
 }
+
+
+
+/* =================certifications form css ================= */
+/* Certification Form Theme Styles */
+.certification-form {
+    background-color: var(--surface-color);
+    color: var(--default-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.certification-form .card-header {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+/* 🔥 Force header title black */
+.certification-form .card-header h5 {
+    color: #000 !important;
+}
+
+.certification-form .form-label {
+    color: var(--heading-color);
+}
+
+.certification-form .form-control,
+.certification-form .input-group-text {
+    background-color: var(--background-color);
+    color: var(--default-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.certification-form .form-control::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
+.certification-form .form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.certification-form small.form-text {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.certification-form .btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--contrast-color);
+    transition: 0.3s;
+}
+
+.certification-form .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%);
+    color: var(--contrast-color);
+}
+
