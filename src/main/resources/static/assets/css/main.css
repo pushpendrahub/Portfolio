@@ -3151,4 +3151,40 @@ Interview booking slot
     background-color: color-mix(in srgb, var(--accent-color), black 15%);
     color: var(--contrast-color);
 }
+/** css for the edit project and delete project **/
+/* Gradient Edit Button */
+.btn-gradient {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.5);
+    color: #fff;
+}
+
+/* Gradient Delete Button */
+.btn-gradient-danger {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.5);
+    color: #fff;
+}
+
+/* Optional: Icon spacing */
+.btn i {
+    font-size: 1rem;
+}
+
 

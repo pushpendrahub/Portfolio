@@ -17,7 +17,6 @@ public class ProjectModel {
     private String title;          // Project Title
     private String summary;        // Short impact summary
     private String description;    // Full description for modal
-    private String icon;           // Bootstrap icon class (e.g. "bi bi-camera")
     private String imagePath;      // Project image path (modal)
     private String tools;          // Comma-separated tools (Java, Spring Boot, MySQL etc.)
     private String features;       // Comma-separated features (list in modal)
@@ -54,14 +53,6 @@ public class ProjectModel {
         this.description = description;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
     public String getImagePath() {
         return imagePath;
     }
@@ -78,6 +69,9 @@ public class ProjectModel {
         // regex handles spaces after commas
     }
 
+    public String getTools() {
+        return tools;
+    }
 
     public void setTools(String tools) {
         this.tools = tools;
