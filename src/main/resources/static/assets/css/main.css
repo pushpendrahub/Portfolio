@@ -3187,4 +3187,35 @@ Interview booking slot
     font-size: 1rem;
 }
 
+/*css for the Achievement section*/
+/* Modal Header Colors */
+.modal-header {
+    background-color: var(--surface-color); /* adapt to theme */
+    color: var(--heading-color);           /* ensures text is visible in dark/light */
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+/* Add Achievement Button */
+.btn-achievement {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--contrast-color);
+    transition: all 0.3s ease;
+}
+
+.btn-achievement:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 80%, var(--default-color) 20%);
+    border-color: color-mix(in srgb, var(--accent-color) 80%, var(--default-color) 20%);
+    color: var(--contrast-color);
+}
+.light-theme .btn-success:hover {
+    background-color: #198754; /* green for light theme */
+    border-color: #198754;
+}
+
+.dark-theme .btn-success:hover {
+    background-color: #28a745; /* slightly lighter green for dark theme */
+    border-color: #28a745;
+}
+
 

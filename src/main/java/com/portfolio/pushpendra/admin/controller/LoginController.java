@@ -155,6 +155,7 @@ public class LoginController {
 
         //getting all achievement
         model.addAttribute("achievements", achievementService.getAllAchievements());
+        model.addAttribute("achievement", new AchievementModel()); // ✅
 
         return "admin/dashboard";
     }
