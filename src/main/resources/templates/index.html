@@ -53,8 +53,7 @@
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-      <li><a href="#portfolio"><i class="bi bi-award navicon"></i> Certifications</a></li>
-<!--          <li><a href="#services"><i class="bi bi-gear-wide-connected navicon"></i> Projects & API</a></li>-->
+        <li><a href="#portfolio"><i class="bi bi-award navicon"></i> Certifications</a></li>
           <li class="dropdown">
               <a href="#">
                   <i class="bi bi-gear-wide-connected navicon"></i>
@@ -66,24 +65,6 @@
                   <li><a href="#api"><i class="bi bi-code-slash navicon"></i> API</a></li>
               </ul>
           </li>
-
-<!--                    <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
-<!--          <ul>-->
-<!--            <li><a href="#">Dropdown 1</a></li>-->
-<!--            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
-<!--              <ul>-->
-<!--                <li><a href="#">Deep Dropdown 1</a></li>-->
-<!--                <li><a href="#">Deep Dropdown 2</a></li>-->
-<!--                <li><a href="#">Deep Dropdown 3</a></li>-->
-<!--                <li><a href="#">Deep Dropdown 4</a></li>-->
-<!--                <li><a href="#">Deep Dropdown 5</a></li>-->
-<!--              </ul>-->
-<!--            </li>-->
-<!--            <li><a href="#">Dropdown 2</a></li>-->
-<!--            <li><a href="#">Dropdown 3</a></li>-->
-<!--            <li><a href="#">Dropdown 4</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
           <li><a href="#achievements"><i class="bi bi-trophy navicon"></i> Achievements & Highlights</a></li>
           <li><a href="#booking"><i class="bi bi-calendar-check navicon"></i> Book Interview Slot</a></li>
           <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
@@ -128,31 +109,15 @@
                 <a href="#services" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
-
-
-
               <div class="social-links">
-                <!--                  <a href="#"><i class="bi bi-dribbble"></i></a>-->
-                <!--                  <a href="#"><i class="bi bi-behance"></i></a>-->
                 <a href="https://github.com/pushpendrahub"><i class="bi bi-github"></i></a>
                 <a href="https://www.linkedin.com/in/pushpendra-singh-4a88bb276"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
 
-
             <!-- Chatbot Button -->
-            <button onclick="toggleChat()"
-                    style="position: fixed; bottom: 20px; right: 20px;
-           border: none; outline: none;
-           background: linear-gradient(135deg, #007bff, #007bff);
-           color: white; border-radius: 50%;
-           width: 55px; height: 55px;
-           font-size: 26px; cursor: pointer;
-           box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-           transition: all 0.3s ease;z-index: 2100;">
-                💭
-            </button>
+            <button onclick="toggleChat()" class="chatbot-btn">💭</button>
 
             <!-- Chatbot Box -->
             <div id="chatBox" style="z-index: 2000;margin-bottom: -70px;">
@@ -169,7 +134,6 @@
                         Ask me anything about my skills, projects, or contact details.
                     </div>
                 </div>
-
                 <!-- Input Area -->
                 <div style="display:flex; margin-top:10px; padding:5px;">
                     <input type="text" id="userInput"
@@ -182,16 +146,16 @@
             </div>
             <!-- End Chatbot -->
 
-
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-visual">
                   <div class="profile-container">
                     <div class="profile-background"></div>
-                    <img src="/assets/img/profile/my_profile.jpg" alt="Alexander Chen" class="profile-image">
+                      <img class="profile-image"
+                           th:src="${#strings.isEmpty(profileImagePath) ? baseUrl + '/assets/img/profile/default-hero.png' : baseUrl + profileImagePath}"
+                           alt="Profile Image">
                   </div>
                 </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -208,7 +172,10 @@
           <div class="profile-card">
             <div class="profile-header">
               <div class="profile-image">
-                <img src="/assets/img/profile/my_close_pic.jpg" alt="Profile Image" class="img-fluid">
+                  <!-- About Image -->
+                  <img th:src="${aboutImagePath != null ? baseUrl + aboutImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                       alt="About Image"
+                       class="img-fluid">
               </div>
               <div class="profile-badge">
                 <i class="bi bi-check-circle-fill"></i>
@@ -255,23 +222,6 @@
 
               <p>I am deeply committed to continuous learning, clean code practices, and building products that positively impact users. I look forward to leveraging my technical expertise to solve challenging problems and grow as a professional Java Full Stack Developer.</p>
             </div>
-
-
-            <!--              <div class="stats-grid">-->
-            <!--                <div class="stat-item">-->
-            <!--                  <div class="stat-number">150+</div>-->
-            <!--                  <div class="stat-label">Projects Completed</div>-->
-            <!--                </div>-->
-            <!--                <div class="stat-item">-->
-            <!--                  <div class="stat-number">5+</div>-->
-            <!--                  <div class="stat-label">Years Experience</div>-->
-            <!--                </div>-->
-            <!--                <div class="stat-item">-->
-            <!--                  <div class="stat-number">98%</div>-->
-            <!--                  <div class="stat-label">Client Satisfaction</div>-->
-            <!--                </div>-->
-            <!--              </div>-->
-
             <div class="details-grid">
               <div class="detail-row">
                 <div class="detail-item">
@@ -312,53 +262,6 @@
     </div>
 
   </section><!-- /About Section -->
-
-  <!-- Stats Section -->
-  <!--    <section id="stats" class="stats section light-background">-->
-
-  <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
-
-  <!--        <div class="row justify-content-center">-->
-  <!--          <div class="col-lg-10">-->
-  <!--            <div class="stats-wrapper">-->
-  <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="150">-->
-  <!--                <div class="icon-wrapper">-->
-  <!--                  <i class="bi bi-emoji-smile"></i>-->
-  <!--                </div>-->
-  <!--                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>-->
-  <!--                <p>Happy Clients</p>-->
-  <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-  <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="200">-->
-  <!--                <div class="icon-wrapper">-->
-  <!--                  <i class="bi bi-journal-richtext"></i>-->
-  <!--                </div>-->
-  <!--                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>-->
-  <!--                <p>Projects</p>-->
-  <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-  <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="250">-->
-  <!--                <div class="icon-wrapper">-->
-  <!--                  <i class="bi bi-headset"></i>-->
-  <!--                </div>-->
-  <!--                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>-->
-  <!--                <p>Hours Of Support</p>-->
-  <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-  <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="300">-->
-  <!--                <div class="icon-wrapper">-->
-  <!--                  <i class="bi bi-people"></i>-->
-  <!--                </div>-->
-  <!--                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>-->
-  <!--                <p>Hard Workers</p>-->
-  <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-  <!--            </div>-->
-  <!--          </div>-->
-  <!--        </div>-->
-
-  <!--      </div>-->
-
-  <!--    </section>&lt;!&ndash; /Stats Section &ndash;&gt;-->
 
   <!-- Skills Section -->
   <section id="skills" class="skills section">
@@ -462,7 +365,6 @@
             </div>
           </div><!-- End Frontend Skills -->
         </div>
-
       </div>
 
     </div>
@@ -485,7 +387,10 @@
         <div class="col-lg-4">
           <div class="resume-side" data-aos="fade-right" data-aos-delay="100">
             <div class="profile-img mb-4">
-              <img src="/assets/img/profile/my_close_pic.jpg" alt="Pushpendra Singh" class="img-fluid rounded">
+                <!-- Resume Image -->
+                <img class="img-fluid rounded"
+                     th:src="${resumeImagePath != null ? baseUrl + resumeImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                     alt="Pushpendra Singh">
             </div>
 
             <h3>Professional Summary</h3>
@@ -637,7 +542,6 @@
 
   </section><!-- /Resume Section -->
 
-  <!-- Section Title -->
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio section">
 
@@ -666,53 +570,46 @@
           <div class="col-lg-9">
             <div class="row gy-4 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-              <!-- Certificate 1: Internship -->
-              <div class="col-lg-6 col-md-6 portfolio-item isotope-item internship-certifications">
-                <div class="portfolio-wrap">
-                  <img src="/assets/img/certificates/Internship_Certificate.png" class="img-fluid" alt="Internship Certificate" loading="lazy">
-                  <div class="portfolio-info">
-                    <div class="content">
-                      <span class="category">Certification</span>
-                      <h4>PHP Full Stack Developer Internship</h4>
-                      <div class="portfolio-links">
-                        <a href="/assets/img/certificates/Internship_Certificate.png" class="glightbox" title="PHP Full Stack Developer Internship Certificate"><i class="bi bi-plus-lg"></i></a>
-                      </div>
+                <!-- Certificate Cards -->
+                <div th:each="cert : ${certifications}"
+                     class="col-lg-6 col-md-6 portfolio-item isotope-item"
+                     th:classappend="${cert.category != null ? cert.category.toLowerCase() + '-certifications' : ''}">
+
+                    <div class="portfolio-wrap shadow-lg rounded-4">
+
+                        <!-- Image -->
+                        <img th:if="${cert.imagePath != null}"
+                             th:src="@{${cert.imagePath}}"
+                             class="img-fluid rounded-top"
+                             th:alt="${cert.title}"
+                             loading="lazy">
+
+                        <img th:if="${cert.imagePath == null}"
+                             src="/assets/img/default-cert.jpg"
+                             class="img-fluid rounded-top"
+                             alt="Default Certification"
+                             loading="lazy">
+
+                        <div class="portfolio-info">
+                            <div class="content text-center">
+                                <span class="badge bg-gradient text-light px-3 py-2">Certification</span>
+                                <h4 class="mt-2 fw-bold" th:text="${cert.title}"></h4>
+                                <p class="text-muted small text-uppercase" th:text="${cert.category}"></p>
+
+                                <div class="portfolio-links mt-2 d-flex justify-content-center gap-3">
+                                    <!-- View -->
+                                    <a th:if="${cert.imagePath != null}"
+                                       th:href="@{${cert.imagePath}}"
+                                       class="glightbox btn btn-sm btn-outline-primary rounded-circle"
+                                       th:title="${cert.title}">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                  </div><!-- End Certificate Item -->
-
-                  <!-- Certificate 2: Java -->
-                  <div class="col-lg-6 col-md-6 portfolio-item isotope-item java-certifications">
-                    <div class="portfolio-wrap">
-                      <img src="/assets/img/certificates/Java_Certificate.png" class="img-fluid" alt="Java Certificate" loading="lazy">
-                      <div class="portfolio-info">
-                        <div class="content">
-                          <span class="category">Certification</span>
-                          <h4>Java Programming Certificate</h4>
-                          <div class="portfolio-links">
-                            <a href="/assets/img/certificates/Java_Certificate.png" class="glightbox" title="Java Programming Certificate"><i class="bi bi-plus-lg"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- End Certificate Item -->
-
-                  <!-- Certificate 3: AI & ML -->
-                  <div class="col-lg-6 col-md-6 portfolio-item isotope-item aiml-certifications">
-                    <div class="portfolio-wrap">
-                      <img src="/assets/img/certificates/AIML_Certificate.png" class="img-fluid" alt="AI ML Certificate" loading="lazy">
-                      <div class="portfolio-info">
-                        <div class="content">
-                          <span class="category">Certification</span>
-                          <h4>AI & Machine Learning Certificate</h4>
-                          <div class="portfolio-links">
-                            <a href="/assets/img/certificates/AIML_Certificate.png" class="glightbox" title="AI & ML Certificate"><i class="bi bi-plus-lg"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- End Certificate Item -->
 
                 </div><!-- End Portfolio Container -->
               </div>
@@ -736,346 +633,89 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
           <div class="row justify-content-center">
+              <!-- If no projects -->
+              <div th:if="${#lists.isEmpty(projects)}" class="col-12 text-center my-4">
+                  <p class="text-muted">No projects added yet.</p>
+              </div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-card position-relative z-1 project-card">
+              <!-- If projects exist -->
+              <div th:each="proj, iterStat : ${projects}"
+                   class="col-lg-4 col-md-6 mb-4"
+                   data-aos="fade-up"
+                   th:attr="data-aos-delay=${100 + (iterStat.index * 100)}">
 
-                <!-- Project Image Thumbnail -->
-                <!--              <div class="project-thumbnail mb-3">-->
-                <!--                <img src="/assets/img/services/img.png" alt="ClassConnect" class="img-fluid rounded shadow-sm">-->
-                <!--              </div>-->
+                  <div class="service-card position-relative z-1 project-card">
 
-                <!-- Top-right action (More Info arrow) -->
-                <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="modal" data-bs-target="#classConnectModal">
-                  <i class="bi bi-arrow-up-right"></i>
-                </a>
+                      <!-- Top-right action: open modal -->
+                      <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle"
+                         data-bs-toggle="modal"
+                         th:attr="data-bs-target='#projectModal-' + ${proj.id}">
+                          <i class="bi bi-arrow-up-right"></i>
+                      </a>
 
-                <!-- Project Icon -->
-                <div class="service-icon mb-2">
-                  <i class="bi bi-journal-code"></i>
-                </div>
+                      <!-- Project Icon -->
+                      <div class="service-icon mb-2">
+                          <i th:class="${projectIconMap[proj.title]}"></i>
+                      </div>
 
-                <!-- Project Title -->
-                <h3>
-                  <a href="#">
-                    ClassConnect Web App
-                  </a>
-                </h3>
+                      <!-- Project Title -->
+                      <h3>
+                          <a href="#" th:text="${proj.title}">Project Title</a>
+                      </h3>
 
-                <!-- Impact Summary -->
-                <p class="impact-summary">
-                  Empowered 50+ teachers and students with automated education management and secure role-based access.
-                </p>
+                      <!-- Impact Summary -->
+                      <p class="impact-summary" th:text="${proj.summary}"></p>
 
-                <!-- Tools Used Badges -->
-                <div class="tools-used mb-2">
-                  <strong>Tools & Technologies:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li><i class="bi bi-cup-hot-fill text-primary"></i> Java</li>
-                    <li><i class="bi bi-box-seam text-success"></i> Spring Boot</li>
-                    <li><i class="bi bi-file-earmark-code text-warning"></i> Thymeleaf</li>
-                    <li><i class="bi bi-database-fill text-info"></i> MySQL</li>
-                    <li><i class="bi bi-shield-lock-fill text-danger"></i> Spring Security</li>
-                  </ul>
-                </div>
+                      <!-- Tools Used -->
+                      <div class="tools-used mb-2">
+                          <strong>Tools & Technologies:</strong>
+                          <ul class="list-unstyled mb-0">
+                              <li th:each="tool : ${proj.toolsList}">
+                                  <i th:class="${toolIconMap[tool.trim()] ?: 'bi bi-tools text-secondary'}"></i>
+                                  <span th:text="${tool}"></span>
+                              </li>
+                          </ul>
+                      </div>
+
+                  </div>
+
+                  <!-- ====== Project View Modal ====== -->
+                  <div class="modal fade"
+                       th:id="'projectModal-' + ${proj.id}"
+                       tabindex="-1"
+                       aria-hidden="true">
+                      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" th:text="${proj.title}"></h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <img th:if="${proj.imagePath != null}"
+                                       th:src="@{${proj.imagePath}}"
+                                       th:alt="${proj.title}"
+                                       class="img-fluid rounded mb-3">
+
+                                  <p th:text="${proj.description}"></p>
+
+                                  <h6>Features:</h6>
+                                  <ul>
+                                      <li th:each="feature : ${proj.featuresList}" th:text="${feature}"></li>
+                                  </ul>
+
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- End View Modal -->
 
               </div>
-            </div>
-
-            <!-- Modal Popup for Project Details -->
-            <div class="modal fade" id="classConnectModal" tabindex="-1" aria-labelledby="classConnectModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="classConnectModalLabel">ClassConnect Web App</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <img src="/assets/img/project/class_connect.png" alt="ClassConnect" class="img-fluid rounded mb-3">
-                    <p>
-                      ClassConnect is a Spring Boot-based education management system with secure authentication using Spring Security, RESTful APIs, and role-based dashboards for teachers and students to manage attendance, assignments, and student data efficiently.
-                    </p>
-                    <h6>Features:</h6>
-                    <ul>
-                      <li>Teacher and student authentication with Spring Security</li>
-                      <li>CRUD operations for student records</li>
-                      <li>Responsive Thymeleaf front-end</li>
-                      <li>MySQL database integration with JPA</li>
-                      <li>Email notifications on student registration</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2: Smart Voting with Facial Recognition -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-card position-relative z-1 project-card">
-
-                <!-- Project Image Thumbnail -->
-                <!--              <div class="project-thumbnail mb-3">-->
-                <!--                <img src="/assets/img/services/voting.png" alt="Smart Voting System" class="img-fluid rounded shadow-sm">-->
-                <!--              </div>-->
-
-                <!-- Top-right action -->
-                <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="modal" data-bs-target="#smartVotingModal">
-                  <i class="bi bi-arrow-up-right"></i>
-                </a>
-
-                <!-- Project Icon -->
-                <div class="service-icon mb-2">
-                  <i class="bi bi-camera"></i>
-                </div>
-
-                <!-- Title -->
-                <h3><a href="#">Smart Voting System</a></h3>
-
-                <!-- Impact Summary -->
-                <p class="impact-summary">
-                  Facial recognition-based voting platform enabling secure and automated voter verification with real-time results.
-                </p>
-
-                <!-- Tools Used -->
-                <div class="tools-used mb-2">
-                  <strong>Tools & Technologies:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li><i class="bi bi-terminal-fill text-primary"></i> Python (PyCharm)</li>
-                    <li><i class="bi bi-camera-video-fill text-success"></i> OpenCV</li>
-                    <li><i class="bi bi-filetype-html text-warning"></i> HTML</li>
-                    <li><i class="bi bi-filetype-css text-info"></i> CSS</li>
-                    <li><i class="bi bi-cloud-fill text-danger"></i> Google Firebase</li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Modal for Smart Voting -->
-            <div class="modal fade" id="smartVotingModal" tabindex="-1" aria-labelledby="smartVotingModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="smartVotingModalLabel">Smart Voting System</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-                  <div class="modal-body">
-                    <img src="/assets/img/project/smart_voting.png" alt="Smart Voting System" class="img-fluid rounded mb-3">
-                    <p>
-                      A facial recognition-based voting platform enabling secure and automated voter verification with real-time result updates, built using Python, OpenCV, and Firebase integration.
-                    </p>
-                    <h6>Features:</h6>
-                    <ul>
-                      <li>Live face detection and recognition verification</li>
-                      <li>Real-time voting count updates</li>
-                      <li>Firebase database integration for result storage</li>
-                      <li>User-friendly interface with HTML/CSS front-end</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3: Scrap Listing Module -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-card position-relative z-1 project-card">
-
-                <!--              <div class="project-thumbnail mb-3">-->
-                <!--                <img src="/assets/img/services/scrap.png" alt="Scrap Listing Module" class="img-fluid rounded shadow-sm">-->
-                <!--              </div>-->
-
-                <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="modal" data-bs-target="#scrapListingModal">
-                  <i class="bi bi-arrow-up-right"></i>
-                </a>
-
-                <div class="service-icon mb-2">
-                  <i class="bi bi-box-seam"></i>
-                </div>
-
-                <h3><a href="#">Scrap Listing Module</a></h3>
-
-                <p class="impact-summary">
-                  Material listing system with session-based data storage, image/video support, and vendor workflows.
-                </p>
-
-                <div class="tools-used mb-2">
-                  <strong>Tools & Technologies:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li><i class="bi bi-filetype-php text-primary"></i> PHP</li>
-                    <li><i class="bi bi-diagram-3-fill text-success"></i> CodeIgniter</li>
-                    <li><i class="bi bi-filetype-html text-warning"></i> HTML</li>
-                    <li><i class="bi bi-filetype-css text-info"></i> CSS</li>
-                    <li><i class="bi bi-database-fill text-danger"></i> MySQL</li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Modal for Scrap Listing -->
-            <div class="modal fade" id="scrapListingModal" tabindex="-1" aria-labelledby="scrapListingModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="scrapListingModalLabel">Scrap Listing Module</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!--                  <img src="/assets/img/services/scrap.png" alt="Scrap Listing Module" class="img-fluid rounded mb-3">-->
-                    <p>
-                      Developed a material listing module supporting images, videos, and session-based data storage to enhance vendor workflows within an integrated PHP CodeIgniter system.
-                    </p>
-                    <h6>Features:</h6>
-                    <ul>
-                      <li>Material and scrap item listing with media attachments</li>
-                      <li>Session-based temporary storage before final submission</li>
-                      <li>Vendor approval workflows and admin management</li>
-                      <li>Integrated with MySQL database for persistence</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 4: Banking Auction Hub -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-card position-relative z-1 project-card">
-
-                <!--              <div class="project-thumbnail mb-3">-->
-                <!--                <img src="/assets/img/services/banking.png" alt="Banking Auction Hub" class="img-fluid rounded shadow-sm">-->
-                <!--              </div>-->
-
-                <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="modal" data-bs-target="#bankingAuctionModal">
-                  <i class="bi bi-arrow-up-right"></i>
-                </a>
-
-                <div class="service-icon mb-2">
-                  <i class="bi bi-bank"></i>
-                </div>
-
-                <h3><a href="#">Banking Auction Hub</a></h3>
-
-                <p class="impact-summary">
-                  Built secure role-based authentication with hashed credentials, token validation, and dynamic workflows.
-                </p>
-
-                <div class="tools-used mb-2">
-                  <strong>Tools & Technologies:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li><i class="bi bi-filetype-php text-primary"></i> PHP</li>
-                    <li><i class="bi bi-diagram-3-fill text-success"></i> CodeIgniter</li>
-                    <li><i class="bi bi-filetype-html text-warning"></i> HTML</li>
-                    <li><i class="bi bi-filetype-css text-info"></i> CSS</li>
-                    <li><i class="bi bi-database-fill text-danger"></i> MySQL</li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Modal for Banking Auction -->
-            <div class="modal fade" id="bankingAuctionModal" tabindex="-1" aria-labelledby="bankingAuctionModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="bankingAuctionModalLabel">Banking Auction Hub</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!--                  <img src="/assets/img/services/banking.png" alt="Banking Auction Hub" class="img-fluid rounded mb-3">-->
-                    <p>
-                      Banking Auction Hub is a secure auction management system with role-based access, hashed credential storage, and token-based user validation ensuring data protection and dynamic workflows.
-                    </p>
-                    <h6>Features:</h6>
-                    <ul>
-                      <li>Admin, bidder, and bank user roles with specific dashboards</li>
-                      <li>Secure password hashing and token validation</li>
-                      <li>Real-time auction updates and user notifications</li>
-                      <li>MySQL-backed persistent data storage</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 5: Japanese Auction Model -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-              <div class="service-card position-relative z-1 project-card">
-
-                <!--              <div class="project-thumbnail mb-3">-->
-                <!--                <img src="/assets/img/services/japanese.png" alt="Japanese Auction Model" class="img-fluid rounded shadow-sm">-->
-                <!--              </div>-->
-
-                <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="modal" data-bs-target="#japaneseAuctionModal">
-                  <i class="bi bi-arrow-up-right"></i>
-                </a>
-
-                <div class="service-icon mb-2">
-                  <i class="bi bi-currency-yen"></i>
-                </div>
-
-                <h3><a href="#">Japanese Auction Model</a></h3>
-
-                <p class="impact-summary">
-                  Automated increment bidding logic with real-time updates using WebSocket for seamless participation.
-                </p>
-
-                <div class="tools-used mb-2">
-                  <strong>Tools & Technologies:</strong>
-                  <ul class="list-unstyled mb-0">
-                    <li><i class="bi bi-filetype-php text-primary"></i> PHP</li>
-                    <li><i class="bi bi-diagram-3-fill text-success"></i> CodeIgniter</li>
-                    <li><i class="bi bi-filetype-html text-warning"></i> HTML</li>
-                    <li><i class="bi bi-filetype-css text-info"></i> CSS</li>
-                    <li><i class="bi bi-database-fill text-danger"></i> MySQL</li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Modal for Japanese Auction -->
-            <div class="modal fade" id="japaneseAuctionModal" tabindex="-1" aria-labelledby="japaneseAuctionModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="japaneseAuctionModalLabel">Japanese Auction Model</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!--                  <img src="/assets/img/services/japanese.png" alt="Japanese Auction Model" class="img-fluid rounded mb-3">-->
-                    <p>
-                      Japanese Auction Model implements automated increment bidding logic with real-time updates using WebSocket, enhancing user experience for competitive bidding processes.
-                    </p>
-                    <h6>Features:</h6>
-                    <ul>
-                      <li>Real-time bid increment using WebSocket</li>
-                      <li>Bidder participation tracking and live status updates</li>
-                      <li>Admin and user dashboards for auction monitoring</li>
-                      <li>Optimized PHP CodeIgniter backend with MySQL</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
         </div>
-
       <!-- /Projects Section -->
 
     <!-- API Section -->
@@ -1115,7 +755,6 @@
                   </div>
               </div>
           </div>
-
       </section>
 
       <!-- Achievements Section -->
@@ -1130,38 +769,13 @@
         <div class="container">
 
           <div class="row">
-
-            <!-- Achievement 1 -->
-            <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="achievement-card">
-                <h4>🏆 9.4 CGPA in B.Sc Computer Science</h4>
-                <p>Graduated from Guru Nanak Khalsa College in 2024 with academic excellence, building a strong foundation in programming, data structures, and software engineering concepts.</p>
+              <!---->
+              <div class="col-lg-6 col-md-6 mb-4" th:each="ach : ${achievements}">
+                  <div class="achievement-card">
+                      <h4 th:text="${ach.title}"></h4>
+                      <p th:text="${ach.description}"></p>
+                  </div>
               </div>
-            </div>
-
-            <!-- Achievement 2 -->
-            <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="achievement-card">
-                <h4>🚀 ClassConnect Web Application</h4>
-                <p>Developed a Spring Boot-based education management system with RESTful APIs, secure authentication via Spring Security, and role-based dashboards for teachers and students.</p>
-              </div>
-            </div>
-
-            <!-- Achievement 3 -->
-            <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="achievement-card">
-                <h4>🔍 Smart Voting using Facial Recognition</h4>
-                <p>Created a Python and OpenCV-based facial recognition system integrated with Firebase Realtime Database to enable automated, secure voter verification processes.</p>
-              </div>
-            </div>
-
-            <!-- Achievement 4 -->
-            <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="achievement-card">
-                <h4>👨‍💻 PHP Full Stack Developer Internship</h4>
-                <p>Completed a 3-month internship at A One Salasar Pvt Ltd, contributing to multiple auction platforms by developing Scrap Listing modules, banking auction hubs, and real-time bidding features.</p>
-              </div>
-            </div>
 
           </div>
 
@@ -1296,30 +910,7 @@
           <div class="contact-form">
             <h3>Get In Touch</h3>
             <p>If you have any queries, project proposals, or wish to collaborate, please fill out the form below. I will get back to you as soon as possible.</p>
-
-<!--              <form th:action="@{/sendMail}" method="post" class="email-form">-->
-<!--              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-<!--              <div class="row gy-4">-->
-<!--                <div class="col-md-6">-->
-<!--                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                  <input type="email" name="email" class="form-control" placeholder="Your Email" required>-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                  <input type="text" name="subject" class="form-control" placeholder="Subject" required>-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                  <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>-->
-<!--                </div>-->
-<!--                <div class="col-12 text-center">-->
-<!--                  <button type="submit" class="btn">Send Message</button>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </form>-->
               <form th:action="@{/sendMail}" method="post">
-<!--                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-<!--                  <input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
                       <div class="row gy-4">
 
                       <div class="col-md-6">
@@ -1351,7 +942,6 @@
               <p th:text="${successMessage}"></p>
             </div>
 
-
           </div>
         </div>
 
@@ -1375,7 +965,6 @@
   </div>
 
 </footer>
-
 
 <!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1583,7 +1172,6 @@
         `;
       }
   }
-
 </script>
 </body>
 

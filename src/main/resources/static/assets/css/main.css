@@ -3218,4 +3218,29 @@ Interview booking slot
     border-color: #28a745;
 }
 
+/* Chatbot Button  CSS*/
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    outline: none;
+    background: var(--accent-color); /* theme-aware */
+    color: var(--contrast-color);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 2100;
+}
+
+.chatbot-btn:hover {
+    transform: scale(1.1);
+    background: color-mix(in srgb, var(--accent-color), white 15%);
+}
+
+
 

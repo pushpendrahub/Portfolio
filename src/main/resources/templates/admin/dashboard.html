@@ -27,16 +27,6 @@
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: SnapFolio
-    * Template URL: https://bootstrapmade.com/snapfolio-bootstrap-portfolio-template/
-    * Updated: Jul 21 2025 with Bootstrap v5.3.7
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-    <!-- jQuery -->
-<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
-
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
@@ -127,8 +117,6 @@
                             </div>
 
                             <div class="social-links">
-                                <!--                  <a href="#"><i class="bi bi-dribbble"></i></a>-->
-                                <!--                  <a href="#"><i class="bi bi-behance"></i></a>-->
                                 <a href="https://github.com/pushpendrahub"><i class="bi bi-github"></i></a>
                                 <a href="https://www.linkedin.com/in/pushpendra-singh-4a88bb276"><i class="bi bi-linkedin"></i></a>
                             </div>
@@ -182,10 +170,6 @@
                             <div class="profile-container">
                                 <div class="profile-background"></div>
 
-                                <!-- Profile Image -->
-<!--                                <img class="profile-image"-->
-<!--                                     th:src="${profileImagePath != null ? baseUrl + profileImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"-->
-<!--                                     alt="Profile Image">-->
                                 <img class="profile-image"
                                      th:src="${#strings.isEmpty(profileImagePath) ? baseUrl + '/assets/img/profile/default-hero.png' : baseUrl + profileImagePath}"
                                      alt="Profile Image">
@@ -433,22 +417,6 @@
                             <p>I am deeply committed to continuous learning, clean code practices, and building products that positively impact users. I look forward to leveraging my technical expertise to solve challenging problems and grow as a professional Java Full Stack Developer.</p>
                         </div>
 
-
-                        <!--              <div class="stats-grid">-->
-                        <!--                <div class="stat-item">-->
-                        <!--                  <div class="stat-number">150+</div>-->
-                        <!--                  <div class="stat-label">Projects Completed</div>-->
-                        <!--                </div>-->
-                        <!--                <div class="stat-item">-->
-                        <!--                  <div class="stat-number">5+</div>-->
-                        <!--                  <div class="stat-label">Years Experience</div>-->
-                        <!--                </div>-->
-                        <!--                <div class="stat-item">-->
-                        <!--                  <div class="stat-number">98%</div>-->
-                        <!--                  <div class="stat-label">Client Satisfaction</div>-->
-                        <!--                </div>-->
-                        <!--              </div>-->
-
                         <div class="details-grid">
                             <div class="detail-row">
                                 <div class="detail-item">
@@ -489,53 +457,6 @@
         </div>
 
     </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <!--    <section id="stats" class="stats section light-background">-->
-
-    <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
-
-    <!--        <div class="row justify-content-center">-->
-    <!--          <div class="col-lg-10">-->
-    <!--            <div class="stats-wrapper">-->
-    <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="150">-->
-    <!--                <div class="icon-wrapper">-->
-    <!--                  <i class="bi bi-emoji-smile"></i>-->
-    <!--                </div>-->
-    <!--                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>-->
-    <!--                <p>Happy Clients</p>-->
-    <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-    <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="200">-->
-    <!--                <div class="icon-wrapper">-->
-    <!--                  <i class="bi bi-journal-richtext"></i>-->
-    <!--                </div>-->
-    <!--                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>-->
-    <!--                <p>Projects</p>-->
-    <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-    <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="250">-->
-    <!--                <div class="icon-wrapper">-->
-    <!--                  <i class="bi bi-headset"></i>-->
-    <!--                </div>-->
-    <!--                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>-->
-    <!--                <p>Hours Of Support</p>-->
-    <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-
-    <!--              <div class="stats-item" data-aos="zoom-in" data-aos-delay="300">-->
-    <!--                <div class="icon-wrapper">-->
-    <!--                  <i class="bi bi-people"></i>-->
-    <!--                </div>-->
-    <!--                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>-->
-    <!--                <p>Hard Workers</p>-->
-    <!--              </div>&lt;!&ndash; End Stats Item &ndash;&gt;-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-
-    <!--      </div>-->
-
-    <!--    </section>&lt;!&ndash; /Stats Section &ndash;&gt;-->
 
     <!-- Skills Section -->
     <section id="skills" class="skills section">
@@ -860,57 +781,6 @@
                     </div>
 
                     <div class="col-lg-9">
-<!--                        <div class="row gy-4 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="200">-->
-
-<!--                            &lt;!&ndash; Certificate 1: Internship &ndash;&gt;-->
-<!--                            <div class="col-lg-6 col-md-6 portfolio-item isotope-item internship-certifications">-->
-<!--                                <div class="portfolio-wrap">-->
-<!--                                    <img src="/assets/img/portfolio/Internship_Certificate.png" class="img-fluid" alt="Internship Certificate" loading="lazy">-->
-<!--                                    <div class="portfolio-info">-->
-<!--                                        <div class="content">-->
-<!--                                            <span class="category">Certification</span>-->
-<!--                                            <h4>PHP Full Stack Developer Internship</h4>-->
-<!--                                            <div class="portfolio-links">-->
-<!--                                                <a href="/assets/img/portfolio/Internship_Certificate.png" class="glightbox" title="PHP Full Stack Developer Internship Certificate"><i class="bi bi-plus-lg"></i></a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>&lt;!&ndash; End Certificate Item &ndash;&gt;-->
-
-<!--                            &lt;!&ndash; Certificate 2: Java &ndash;&gt;-->
-<!--                            <div class="col-lg-6 col-md-6 portfolio-item isotope-item java-certifications">-->
-<!--                                <div class="portfolio-wrap">-->
-<!--                                    <img src="/assets/img/portfolio/Java_Certificate.png" class="img-fluid" alt="Java Certificate" loading="lazy">-->
-<!--                                    <div class="portfolio-info">-->
-<!--                                        <div class="content">-->
-<!--                                            <span class="category">Certification</span>-->
-<!--                                            <h4>Java Programming Certificate</h4>-->
-<!--                                            <div class="portfolio-links">-->
-<!--                                                <a href="/assets/img/portfolio/Java_Certificate.png" class="glightbox" title="Java Programming Certificate"><i class="bi bi-plus-lg"></i></a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>&lt;!&ndash; End Certificate Item &ndash;&gt;-->
-
-<!--                            &lt;!&ndash; Certificate 3: AI & ML &ndash;&gt;-->
-<!--                            <div class="col-lg-6 col-md-6 portfolio-item isotope-item aiml-certifications">-->
-<!--                                <div class="portfolio-wrap">-->
-<!--                                    <img src="/assets/img/portfolio/AIML_Certificate.png" class="img-fluid" alt="AI ML Certificate" loading="lazy">-->
-<!--                                    <div class="portfolio-info">-->
-<!--                                        <div class="content">-->
-<!--                                            <span class="category">Certification</span>-->
-<!--                                            <h4>AI & Machine Learning Certificate</h4>-->
-<!--                                            <div class="portfolio-links">-->
-<!--                                                <a href="/assets/img/portfolio/AIML_Certificate.png" class="glightbox" title="AI & ML Certificate"><i class="bi bi-plus-lg"></i></a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>&lt;!&ndash; End Certificate Item &ndash;&gt;-->
-
-<!--                        </div>&lt;!&ndash; End Portfolio Container &ndash;&gt;-->
                         <!-- ================= Certifications Section ================= -->
                         <div class="row gy-4 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="200">
 
@@ -1336,37 +1206,6 @@
                     + Add Achievement
                 </button>
             </div>
-            <!--                &lt;!&ndash; Achievement 1 &ndash;&gt;-->
-            <!--                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">-->
-            <!--                    <div class="achievement-card">-->
-            <!--                        <h4>🏆 9.4 CGPA in B.Sc Computer Science</h4>-->
-            <!--                        <p>Graduated from Guru Nanak Khalsa College in 2024 with academic excellence, building a strong foundation in programming, data structures, and software engineering concepts.</p>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                &lt;!&ndash; Achievement 2 &ndash;&gt;-->
-            <!--                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">-->
-            <!--                    <div class="achievement-card">-->
-            <!--                        <h4>🚀 ClassConnect Web Application</h4>-->
-            <!--                        <p>Developed a Spring Boot-based education management system with RESTful APIs, secure authentication via Spring Security, and role-based dashboards for teachers and students.</p>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                &lt;!&ndash; Achievement 3 &ndash;&gt;-->
-            <!--                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">-->
-            <!--                    <div class="achievement-card">-->
-            <!--                        <h4>🔍 Smart Voting using Facial Recognition</h4>-->
-            <!--                        <p>Created a Python and OpenCV-based facial recognition system integrated with Firebase Realtime Database to enable automated, secure voter verification processes.</p>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                &lt;!&ndash; Achievement 4 &ndash;&gt;-->
-            <!--                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">-->
-            <!--                    <div class="achievement-card">-->
-            <!--                        <h4>👨‍💻 PHP Full Stack Developer Internship</h4>-->
-            <!--                        <p>Completed a 3-month internship at A One Salasar Pvt Ltd, contributing to multiple auction platforms by developing Scrap Listing modules, banking auction hubs, and real-time bidding features.</p>-->
-            <!--                    </div>-->
-            <!--                </div>-->
             <div class="row">
                 <!---->
                 <div class="col-lg-6 col-md-6 mb-4" th:each="ach : ${achievements}">
@@ -1590,30 +1429,7 @@
                     <div class="contact-form">
                         <h3>Get In Touch</h3>
                         <p>If you have any queries, project proposals, or wish to collaborate, please fill out the form below. I will get back to you as soon as possible.</p>
-
-                        <!--              <form th:action="@{/sendMail}" method="post" class="email-form">-->
-                        <!--              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-                        <!--              <div class="row gy-4">-->
-                        <!--                <div class="col-md-6">-->
-                        <!--                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>-->
-                        <!--                </div>-->
-                        <!--                <div class="col-md-6">-->
-                        <!--                  <input type="email" name="email" class="form-control" placeholder="Your Email" required>-->
-                        <!--                </div>-->
-                        <!--                <div class="col-12">-->
-                        <!--                  <input type="text" name="subject" class="form-control" placeholder="Subject" required>-->
-                        <!--                </div>-->
-                        <!--                <div class="col-12">-->
-                        <!--                  <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>-->
-                        <!--                </div>-->
-                        <!--                <div class="col-12 text-center">-->
-                        <!--                  <button type="submit" class="btn">Send Message</button>-->
-                        <!--                </div>-->
-                        <!--              </div>-->
-                        <!--            </form>-->
                         <form th:action="@{/sendMail}" method="post">
-                            <!--                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-                            <!--                  <input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
@@ -1887,41 +1703,6 @@
         }
     }
     //visitor log datatable
-    // $(document).ready(function () {
-    //     $('#visitorTable').DataTable({
-    //         "paging": true,
-    //         "searching": true,
-    //         "ordering": true,
-    //         "pageLength": 10,
-    //         "lengthMenu": [5, 10, 25, 50],
-    //
-    //     });
-    // });
-
-    // $(document).ready(function () {
-    //     $('#visitorTable').DataTable({
-    //         paging: true,
-    //         searching: true,
-    //         ordering: true,
-    //         pageLength: 10,
-    //         lengthMenu: [5, 10, 25, 50],
-    //         dom: 'lfrtip', // default DataTables layout
-    //         language: {
-    //             search: "", // remove default label
-    //             searchPlaceholder: "🔍 Search visitors..."
-    //         }
-    //     });
-    //
-    //     // Link custom search input
-    //     $('#visitorSearch').on('keyup', function () {
-    //         $('#visitorTable').DataTable().search(this.value).draw();
-    //     });
-    //
-    //     // Link custom rows per page select
-    //     $('#visitorRowsPerPage').on('change', function () {
-    //         $('#visitorTable').DataTable().page.len(this.value).draw();
-    //     });
-    // });
     var dtJQ = jQuery.noConflict(true);
 
     dtJQ(document).ready(function () {
@@ -1947,30 +1728,6 @@
         });
     });
     //interview booking slot datatable
-    // $(document).ready(function () {
-    //     $('#bookingTable').DataTable({
-    //         paging: true,
-    //         searching: true,
-    //         ordering: true,
-    //         pageLength: 10,
-    //         lengthMenu: [5, 10, 25, 50],
-    //         dom: 'lfrtip', // default DataTables layout
-    //         language: {
-    //             search: "", // remove default label
-    //             searchPlaceholder: "🔍 Search bookings..."
-    //         }
-    //     });
-    //
-    //     // Link custom search input
-    //     $('#bookingSearch').on('keyup', function () {
-    //         $('#bookingTable').DataTable().search(this.value).draw();
-    //     });
-    //
-    //     // Link custom rows per page select
-    //     $('#bookingRowsPerPage').on('change', function () {
-    //         $('#bookingTable').DataTable().page.len(this.value).draw();
-    //     });
-    // });
     document.addEventListener("DOMContentLoaded", function () {
         if (typeof jQuery !== "undefined") {
             var jq = jQuery.noConflict(true); // ✅ use local alias
