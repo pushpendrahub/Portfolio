@@ -1,4 +1,3 @@
-````md
 # 🚀 Pushpendra Portfolio
 
 A modern and responsive personal portfolio website built using Spring Boot, designed to showcase my technical skills, development projects, certifications, and professional experience as a Java Full Stack Developer.
@@ -193,7 +192,3 @@ are excluded using `.gitignore` for security purposes.
 ## 📄 License
 
 This project is developed for educational, portfolio, and professional showcase purposes.
-
-```
-::contentReference[oaicite:1]{index=1}
-```
