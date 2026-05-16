@@ -107,7 +107,6 @@ public class LoginController {
         //get all projects
         List<ProjectModel> projects = projectService.getAllProjects();
         model.addAttribute("projects", projects);
-//        model.addAttribute("projects", projectService.getAllProjects());
 
         // Tool to icon mapping
         Map<String, String> toolIconMap = new HashMap<>();

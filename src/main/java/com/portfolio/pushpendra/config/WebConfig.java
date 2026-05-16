@@ -20,25 +20,16 @@ public class WebConfig implements WebMvcConfigurer {
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Profile images
+        // Default profile images (packaged inside /static)
         registry.addResourceHandler("/assets/img/profile/**")
-                .addResourceLocations(
-                        "classpath:/static/assets/img/profile/",   // default profile images
-                        "file:D:/uploads/profile/"                 // uploaded profile images
-                );
+                .addResourceLocations("classpath:/static/assets/img/profile/");
 
-        // Certification images
+        // Default certificate images
         registry.addResourceHandler("/assets/img/certificates/**")
-                .addResourceLocations(
-                        "classpath:/static/assets/img/certificates/", // default certificates
-                        "file:D:/uploads/certificates/"               // uploaded certificates
-                );
+                .addResourceLocations("classpath:/static/assets/img/certificates/");
 
-        // Project images
+        // Default project images
         registry.addResourceHandler("/assets/img/project/**")
-                .addResourceLocations(
-                        "classpath:/static/assets/img/project/", // default certificates
-                        "file:D:/uploads/project/"               // uploaded certificates
-                );
+                .addResourceLocations("classpath:/static/assets/img/project/");
     }
 }

@@ -12,6 +12,7 @@ public class CertificationModel {
     private String category;   // Internship, Java, AIML etc.
     private String title;      // Certificate name
     private String imagePath;
+    private String imagePublicId; // Cloudinary public_id
 
     public Long getId() {
         return id;
@@ -43,5 +44,13 @@ public class CertificationModel {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getImagePublicId() {
+        return imagePublicId;
+    }
+
+    public void setImagePublicId(String imagePublicId) {
+        this.imagePublicId = imagePublicId;
     }
 }

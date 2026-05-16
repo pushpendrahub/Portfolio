@@ -18,6 +18,7 @@ public class ProjectModel {
     private String summary;        // Short impact summary
     private String description;    // Full description for modal
     private String imagePath;      // Project image path (modal)
+    private String imagePublicId;  // Cloudinary public_id
     private String tools;          // Comma-separated tools (Java, Spring Boot, MySQL etc.)
     private String features;       // Comma-separated features (list in modal)
 
@@ -92,4 +93,11 @@ public class ProjectModel {
         return Arrays.asList(features.split("\\s*,\\s*"));
     }
 
+    public String getImagePublicId() {
+        return imagePublicId;
+    }
+
+    public void setImagePublicId(String imagePublicId) {
+        this.imagePublicId = imagePublicId;
+    }
 }

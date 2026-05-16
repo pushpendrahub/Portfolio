@@ -9,9 +9,38 @@ public class ProfileImageModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String profileImage;
-    private String aboutImage;
-    private String resumeImage;
+    private String profileImage;      // ✅ Cloudinary URL
+    private String profileImageId;    // ✅ Cloudinary public_id
+
+    private String aboutImage;        // ✅ URL (Cloudinary)
+    private String aboutImageId;      // ✅ public_id
+
+    private String resumeImage;       // ✅ URL (Cloudinary)
+    private String resumeImageId;     // ✅ public_id
+
+    public String getProfileImageId() {
+        return profileImageId;
+    }
+
+    public void setProfileImageId(String profileImageId) {
+        this.profileImageId = profileImageId;
+    }
+
+    public String getAboutImageId() {
+        return aboutImageId;
+    }
+
+    public void setAboutImageId(String aboutImageId) {
+        this.aboutImageId = aboutImageId;
+    }
+
+    public String getResumeImageId() {
+        return resumeImageId;
+    }
+
+    public void setResumeImageId(String resumeImageId) {
+        this.resumeImageId = resumeImageId;
+    }
 
     public Long getId() {
         return id;

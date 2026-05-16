@@ -1,6 +1,7 @@
 package com.portfolio.pushpendra.admin.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.portfolio.pushpendra.admin.model.ProjectModel;
 import com.portfolio.pushpendra.admin.service.ProjectService;
 import org.springframework.stereotype.Controller;
@@ -9,44 +10,39 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final Cloudinary cloudinary;
 
-    @Value("${file.upload-dir-project}")
-    private String uploadDir;  // Example: D:/uploads/project
-
-    public ProjectController(ProjectService projectService) {
+    public ProjectController(ProjectService projectService, Cloudinary cloudinary) {
         this.projectService = projectService;
+        this.cloudinary = cloudinary;
     }
 
-    /** Add new project with image upload */
+    /** Add new project with Cloudinary upload */
     @PostMapping("/admin/addProject")
     public String addProject(@RequestParam("title") String title,
                              @RequestParam("summary") String summary,
                              @RequestParam("description") String description,
                              @RequestParam("tools") String tools,
                              @RequestParam("features") String features,
-                             @RequestParam(value = "imageFile", required = false) MultipartFile image, // optional
+                             @RequestParam(value = "imageFile", required = false) MultipartFile image,
                              RedirectAttributes redirectAttributes) {
         try {
             String imageUrl = null;
+            String publicId = null;
 
             if (image != null && !image.isEmpty()) {
-                Path dirPath = Paths.get(uploadDir);
-                Files.createDirectories(dirPath);
+                Map uploadResult = cloudinary.uploader().upload(image.getBytes(),
+                        ObjectUtils.asMap("folder", "portfolio/projects"));
 
-                String fileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
-                Path filePath = dirPath.resolve(fileName);
-                image.transferTo(filePath.toFile());
-
-                imageUrl = "/assets/img/project/" + fileName;
+                imageUrl = (String) uploadResult.get("secure_url");
+                publicId = (String) uploadResult.get("public_id");
             }
 
             ProjectModel project = new ProjectModel();
@@ -56,6 +52,7 @@ public class ProjectController {
             project.setTools(tools);
             project.setFeatures(features);
             project.setImagePath(imageUrl);
+            project.setImagePublicId(publicId);
 
             projectService.saveProject(project);
             redirectAttributes.addFlashAttribute("success", "Project added successfully!");
@@ -68,16 +65,30 @@ public class ProjectController {
         return "redirect:/admin/dashboard";
     }
 
-    /** Delete project */
+    /** Delete project (also remove from Cloudinary) */
     @PostMapping("/admin/deleteProject/{id}")
     public String deleteProject(@PathVariable Long id,
                                 RedirectAttributes redirectAttributes) {
-        projectService.deleteProject(id);
-        redirectAttributes.addFlashAttribute("success", "Project deleted successfully!");
+        Optional<ProjectModel> existingOpt = projectService.getProjectById(id);
+        if (existingOpt.isPresent()) {
+            ProjectModel project = existingOpt.get();
+            if (project.getImagePublicId() != null) {
+                try {
+                    cloudinary.uploader().destroy(project.getImagePublicId(), ObjectUtils.emptyMap());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            projectService.deleteProject(id);
+            redirectAttributes.addFlashAttribute("success", "Project deleted successfully!");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Project not found!");
+        }
+
         return "redirect:/admin/dashboard";
     }
 
-    /** Update project */;
+    /** Update project */
     @PostMapping("/admin/editProject/{id}")
     public String updateProject(@PathVariable Long id,
                                 @RequestParam("title") String title,
@@ -99,14 +110,21 @@ public class ProjectController {
                 existing.setFeatures(features);
 
                 if (image != null && !image.isEmpty()) {
-                    Path dirPath = Paths.get(uploadDir);
-                    Files.createDirectories(dirPath);
+                    // ✅ Delete old image if exists
+                    if (existing.getImagePublicId() != null) {
+                        try {
+                            cloudinary.uploader().destroy(existing.getImagePublicId(), ObjectUtils.emptyMap());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
-                    String fileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
-                    Path filePath = dirPath.resolve(fileName);
-                    image.transferTo(filePath.toFile());
+                    // ✅ Upload new image
+                    Map uploadResult = cloudinary.uploader().upload(image.getBytes(),
+                            ObjectUtils.asMap("folder", "portfolio/projects"));
 
-                    existing.setImagePath("/assets/img/project/" + fileName);
+                    existing.setImagePath((String) uploadResult.get("secure_url"));
+                    existing.setImagePublicId((String) uploadResult.get("public_id"));
                 }
 
                 projectService.saveProject(existing);
@@ -122,5 +140,4 @@ public class ProjectController {
 
         return "redirect:/admin/dashboard";
     }
-
 }

@@ -26,4 +26,9 @@ public class CertificationService {
     public void deleteCertification(Long id) {
         certificationRepo.deleteById(id);
     }
+
+    public CertificationModel getCertificationById(Long id) {
+        return certificationRepo.findById(id).orElse(null);
+    }
+
 }

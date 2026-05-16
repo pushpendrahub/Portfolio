@@ -151,7 +151,7 @@
                   <div class="profile-container">
                     <div class="profile-background"></div>
                       <img class="profile-image"
-                           th:src="${#strings.isEmpty(profileImagePath) ? baseUrl + '/assets/img/profile/default-hero.png' : baseUrl + profileImagePath}"
+                           th:src="${#strings.isEmpty(profileImagePath) ? '/assets/img/profile/default-hero.png' : profileImagePath}"
                            alt="Profile Image">
                   </div>
                 </div>
@@ -173,7 +173,7 @@
             <div class="profile-header">
               <div class="profile-image">
                   <!-- About Image -->
-                  <img th:src="${aboutImagePath != null ? baseUrl + aboutImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                  <img th:src="${#strings.isEmpty(aboutImagePath) ? '/assets/img/profile/default-hero.png' : aboutImagePath}"
                        alt="About Image"
                        class="img-fluid">
               </div>
@@ -389,7 +389,7 @@
             <div class="profile-img mb-4">
                 <!-- Resume Image -->
                 <img class="img-fluid rounded"
-                     th:src="${resumeImagePath != null ? baseUrl + resumeImagePath + '?v=' + cacheBuster : '/assets/img/profile/default-hero.png'}"
+                     th:src="${#strings.isEmpty(resumeImagePath) ? '/assets/img/profile/default-hero.png' : resumeImagePath}"
                      alt="Pushpendra Singh">
             </div>
 
@@ -1033,7 +1033,7 @@
       bookBtn.disabled = true; // Disable button to prevent double-click
 
       try {
-          const response = await fetch("http://localhost:8080/index/book-slot", {
+          const response = await fetch(`${window.location.origin}/index/book-slot`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(data)
@@ -1087,7 +1087,7 @@
           quoteBox.innerText = "Loading...";
 
           try {
-              const response = await fetch('http://localhost:8080/api/quote', {
+              const response = await fetch(`${window.location.origin}/api/quote`, {
                   headers: { 'API-Key': 'MY_SECRET_KEY' }
               });
 
